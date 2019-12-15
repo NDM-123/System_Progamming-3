@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <string.h>
 
 static const char filename[] = "file.txt";
 FILE *file = fopen(filename, "r");
