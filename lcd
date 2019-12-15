@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+int lcsOptimized(string &X, string &Y) {
+   int m = X.length(), n = Y.length();
+   int L[2][n + 1];
+   bool index;
+   for (int i = 0; i <= m; i++) {
+      index = i & 1;
+      for (int j = 0; j <= n; j++) {
+         if (i == 0 || j == 0)
+            L[index][j] = 0;
+         else if (X[i-1] == Y[j-1])
+            L[index][j] = L[1 - index][j - 1] + 1;
+         else
+            L[index][j] = max(L[1 - index][j], L[index][j - 1]);
+      }
+   }
+   return L[index][n];
+}
+int main() {
+   string X = "BHHUBC";
+   string Y = "HYUYBZC";
+   cout << "Length of LCS is :" << lcsOptimized(X, Y);
+}
