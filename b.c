@@ -4,29 +4,28 @@
 
 
 
-void findsimilar(char filename[],char  input[]){
+void findsimilar(char filename[],char  input[]){//input is a string we want to find in text
 
 FILE *file = fopen(filename, "r");
 if ( file != NULL )//file is exist
 {
     char line[256]; /* or other suitable maximum line size */
-    while (fgets(line, sizeof line, file) != NULL) /* read a line */
+    while (fgets(line, sizeof line, file) != NULL) /* read a line  stores it into the string pointed to by line*/
     {
        ///////////////////////////////////////////////////////////work with 1 line
        
-     char temo_word[100];/* or other suitable maximum word size */
+     char temp_word[100];/* or other suitable maximum word size */
     char newString[10][10]; 
     int i=0,//run on the line
-    int j=0,//the start of the temo word 
-    int ctr=0;// the temo word index
+    int j=0,//the start of the temp word 
+    int ctr=0;// the temp word index
          
  
  
-    j=0; ctr=0;
     for(i=0;i<=(strlen(temo_word));i++)
     {
         // if space or \0 found, assign NULL into newString[ctr]
-        if(temo_word[i]==' '||temo_word[i]=='\0')
+        if(temp_word[i]==' '||temp_word[i]=='\0')
         {
             newString[ctr][j]='\0';
             ctr++;  //for next word
@@ -38,7 +37,7 @@ if ( file != NULL )//file is exist
             j++;
         }
     }
-    //lcsOptimized
+    //lcs
     for(i=0;i < ctr;i++){
       if( findLCS(newString[i],input,strlen(newString[i]),strlen(input))>strlen(input))//the word is similar!
            printf(newString[i]);
