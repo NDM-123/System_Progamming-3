@@ -47,13 +47,21 @@ int substring(char *str1, char *str2) {
 }
 
 int similar(char *s,char *t,int n){
-
+if(strlen(s)>strlen(t))return 0;
 int flag=0;
-for(int j=0;j<n;j++){
-   
-	
-if(substring(*s,*t)==1){flag=1;}
-else{flag
+int i=0;;
+for(int j=0;j<(s[i]!=0 && t[j]!=0);j++){
+   if(s[i]==t[j]){
+	i++;
+	j++;
+}else{
+flag++;
+j++;
+}
+i++;
+}	
+if(flag>n){return 0;}
+else{return 1;}
     
 
 
@@ -62,7 +70,7 @@ else{flag
 void print_lines(char *str){
     for (int i = 0; i < LINE ; ++i) {
         if(str[i]=='\n')break;
-    printf("%c",str[i])
+    printf("%c",str[i]);
     }
     return;
 }
@@ -70,7 +78,7 @@ void print_similar_words(char *str){
     for (int i = 0; i < WORD ; ++i) {
         if(str[i]=='\n')break;
         if(str[i]=='\t')break;
-        printf("%c",str[i])
+        printf("%c",str[i]);
     }
     return;
 
