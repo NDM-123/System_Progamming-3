@@ -15,18 +15,20 @@ if ( file != NULL )
     {
        ////////
 puts(line);
+char* p=line;
 
 
-
-int wordleng=getword(line);
-if(substring(line, input))
+for( int i=0;i<=(strlen(line));i++){
+if (line[i]==' ' ||line[i]=='\0'){
+if(substring(*p, input))
 {
 if(similar(line,input,1)){
-printf("%c \n",line);
+printf("%s \n",*p);
 }
 }
-
-
+*p=*(p+i++);
+}
+}
 
 
     }
