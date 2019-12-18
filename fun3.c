@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <stdlib.h>
+
 
 
 void samewords(char input[]){
@@ -15,18 +15,18 @@ if ( file != NULL )
     {
        ////////
 puts(line);
-char* p=line;
+char* p=line;//pointer to start line
 
 
-for( int i=0;i<=(strlen(line));i++){
-if (line[i]==' ' ||line[i]=='\0'){
+for( int i=0;i<=(strlen(line));i++){//run on all line
+if (line[i]==' ' ||line[i]=='\0'\\line[i]=='\n'){
 if(substring(*p, input))
 {
 if(similar(line,input,1)){
 printf("%s \n",*p);
 }
 }
-*p=*(p+i++);
+*p=*(p+i++);//go tothe index of the next word
 }
 }
 
