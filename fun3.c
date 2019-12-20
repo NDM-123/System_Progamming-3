@@ -37,7 +37,7 @@ int substring(char *str1, char *str2) {
     int full = strlen(str2);
     int len = strlen(str1);
     for (int i = 0; i < len; i++) {
-        if ((str2 + j) == (str1 + i)) {
+        if ((str2[j]) == (str1[i])) {
             wordlen++;
             if (wordlen == full)return 1;
             j++;
@@ -46,27 +46,26 @@ int substring(char *str1, char *str2) {
     return 0;
 }
 
+
 int similar(char *s,char *t,int n){
 if(strlen(s)>strlen(t))return 0;
 int flag=0;
 int i=0;;
-for(int j=0;j<(s[i]!=0 && t[j]!=0);j++){
+for(int j=0;i<strlen(s) || j<strlen(t);i++){
    if(s[i]==t[j]){
-	i++;
 	j++;
 }else{
 flag++;
-j++;
 }
-i++;
-}	
+}
+//if(flag <= n && j < sizeS) return 0;	
 if(flag>n){return 0;}
-else{return 1;}
-    
 
-
+else{return 1;}    
 
 }
+
+
 void print_lines(char *str){
     for (int i = 0; i < LINE ; ++i) {
         if(str[i]=='\n')break;
@@ -91,22 +90,33 @@ void print_similar_words(char *str){
   int main(){ 
 FILE *ptr_file;
     char buf[200];
-    char key[] = "cat"; // the string I am searching for
-    int wordcount = 0;
 
+    char key[] = "cat"; // the string I am searching for
+    char wordcount[30];
+int i=0;
     ptr_file = fopen("input.txt","r"); // my input text file
 
     while (fgets(buf,200, ptr_file)!=NULL)
     {
-        if((strstr(buf,key)) !=NULL){
-char *ret;
-ret =(strstr(buf,key));
-if(substring(ret, key)&&similar(ret,key,1)){
-printf("%s",ret);
-}
+char *p=buf;
+int len= getLine(p);
+
+for (i=0;i<len;){
+if(*(p+i)=='\0'){
+
+if (similar(wordcount,key,1)){
+
+printf("%s",&wordcount);
 
         }
+p=p+i+1;
+}
+else{
+    strncat(wordcount, &buf[i], 1);
+i++; 
+}
     }
+}
     fclose(ptr_file);
-
+printf("ff");
 }
