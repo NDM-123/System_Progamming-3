@@ -111,11 +111,11 @@ if(*p==*token2)
 char c[30];
   strcpy(c, token1);
     while (fgets(buf, LINE, ptr_file) != NULL) {
-        if (substring(buf, token1)) {
+        if (substring(buf, c)) {
             char *p = buf;
 
 
-            if (similar(p, token1, 1)) {
+            if (similar(p, c, 1)) {
                 print_line(p);
             }
            
