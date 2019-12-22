@@ -140,5 +140,5 @@ char c[30];
         }
         fclose(ptr_file);
 }
-        return 1;
+        return 0;
     }
