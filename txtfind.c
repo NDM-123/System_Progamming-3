@@ -81,7 +81,7 @@ int main() {
     FILE *ptr_file;
     char buf[LINE];
 
-    ptr_file = fopen("sort_input.txt", "r"); // my input text file
+    ptr_file = fopen("find_input.txt", "r"); // my input text file
 
 char *token1;
 char *token2;
