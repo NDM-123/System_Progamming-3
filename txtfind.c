@@ -80,9 +80,7 @@ void print_word(char *p,char *key){
 int main() {
     FILE *ptr_file;
     char buf[LINE];
-    char key[] = "cat"; // the string I am searching for
 
-    int i = 0;
     ptr_file = fopen("input.txt", "r"); // my input text file
 
 char *token1;
