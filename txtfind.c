@@ -81,25 +81,66 @@ int main() {
     FILE *ptr_file;
     char buf[LINE];
     char key[] = "cat"; // the string I am searching for
-    char wordcount[WORD];
+
     int i = 0;
-    ptr_file = fopen("testa.txt", "r"); // my input text file
+    ptr_file = fopen("input.txt", "r"); // my input text file
+
+char *token1;
+char *token2;
+if(fgets(buf, LINE, ptr_file) != NULL)
+{
+
+char *line =buf;
+char *search = " ";
+
+
+// Token will point to "SEVERAL".
+token1 = strtok(line, search);
+
+
+// Token will point to "WORDS".
+token2 = strtok(NULL, search);
+
+}
+
+
+    char str2[30]="a";
+char*p=str2;
+if(*p==*token2)
+{
+char c[30];
+  strcpy(c, token1);
     while (fgets(buf, LINE, ptr_file) != NULL) {
-        if (substring(buf, key)) {
+        if (substring(buf, token1)) {
             char *p = buf;
 
 
-            if (similar(p, key, 1)) {
+            if (similar(p, token1, 1)) {
                 print_line(p);
             }
-            if (similar(p, key, 1)) {
-    print_word(p,key);
-            }
+           
         }
 
         }
         fclose(ptr_file);
+}
+else
+{
+char c[30];
+  strcpy(c, token1);
+    while (fgets(buf, LINE, ptr_file) != NULL) {
+        if (substring(buf, c)) {
+            char *p = buf;
 
+
+             if (similar(p, c, 1)) {
+    print_word(p,c);
+            }
+           
+        }
+
+        }
+        fclose(ptr_file);
+}
         return 1;
     }
-
